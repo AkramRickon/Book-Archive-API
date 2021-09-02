@@ -1,8 +1,6 @@
 
-//get total number of found results
+//Global declaration for repeating task
 const resultFound=document.getElementById('result-found');
-
-//get book details 
 const bookContainer=document.getElementById('book-container');
 
 
@@ -25,7 +23,7 @@ document.getElementById('search-btn').addEventListener('click',()=>
     if(searchBookName==='')
     {
         // set error message
-        resultFound.innerHTML='<h5>Search field can not be empty</h5>';
+        resultFound.innerHTML="<h5 class='text-danger'>Search field can not be empty</h5>";
         return;
     }
 
@@ -46,7 +44,7 @@ const showBooks=(data)=>
     // Error Handling
     if(data.numFound===0)
     {
-        resultFound.innerHTML='<h5>No result found</h5>';
+        resultFound.innerHTML="<h5 class='text-danger'>No result found</h5>";
         // Hide spinner
          toggleSpinner('none');
         return;
@@ -54,7 +52,7 @@ const showBooks=(data)=>
     else 
     {
          //set total number of found results
-        resultFound.innerHTML=`<h4>Total number of results found: ${data.numFound}</h4>`
+        resultFound.innerHTML=`<h4 class='text-success'>Total number of results found: ${data.numFound}</h4>`
     }
 
     const books=data.docs;
@@ -67,9 +65,9 @@ const showBooks=(data)=>
             <div class="card h-100 rounded shadow border border-secondary">
             <img src="https://covers.openlibrary.org/b/id/${book?.cover_i}-M.jpg" class="card-img-top" height=300px alt="image not found">
             <div class="card-body">
-            <p class="card-title"><b>Book Title</b>: ${book?.title}</p>
-            <p class="card-text"><b>Author Name:</b>  ${book?.author_name}</p>
-            <p class="card-text"><b>Publisher: </b> ${book?.publisher}</p>
+            <p class="card-title"><b>Book Name</b>: ${book?.title}</p>
+            <p class="card-text"><b>Author Name:</b>  ${book?.author_name?.[0]}</p>
+            <p class="card-text"><b>Publisher: </b> ${book?.publisher?.[0]}</p>
             <p class="card-text"><b>First Publish Year:</b> ${book?.first_publish_year}</p>
         `;
         bookContainer.appendChild(div);
