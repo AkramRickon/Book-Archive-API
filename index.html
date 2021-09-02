@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-archive</title>
+
+    <!--bootstrap  link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- External styleSheet -->
+    <link rel='stylesheet' href='style/style.css'>
+</head>
+<body class='bg-light' >
+    <main >
+        <!-- Book Search Area -->
+        <section class='container w-50 mt-5 mb-4'>
+            <h2 class='text-center p-3 text-secondary '>Search Book by Name!!!</h2>
+            <div class="input-group mb-3">
+                <input  id='search-book' type="text" class="form-control" placeholder="Enter a book name like  javascript">
+                <button id='search-btn' search-btn' class="btn btn-dark px-3 py-1 fs-6" type="button">Search</button>
+            </div>
+        </section>
+
+        <!-- spinner -->
+
+        <section class='container w-50'>
+            <div class="d-flex justify-content-center">
+                <div id='spinner' class="spinner-border text-info" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+        </section>
+
+           <!-- error message  and total found search result Area-->
+        <section class='container w-50 mb-5 text-center'>
+            <div id='result-found'></div>
+        </section>
+
+     
+        <!-- Book details Area -->
+        <section class='container w-75 my-3'>
+            <div id='book-container' class="row row-cols-1 row-cols-md-3 g-4">
+            </div>
+        </section>
+    </main>
+
+<!--javascript link-->
+    <script src='script/book.js'></script>
+</body>
+</html>
